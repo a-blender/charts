@@ -53,6 +53,10 @@ spec:
     {{- with .Values.fluentbit.resources }}
     resources: {{- toYaml . | nindent 6 }}
     {{- end }}
+    {{- if .Values.fluentbit.filterKubernetes.Merge_Log }}
+    filterKubernetes:
+      Merge_Log: {- if .Values.fluentbit.filterKubernetes.Merge_Log | toString }}
+    {{- end }}
   fluentd:
     image:
       repository: {{ template "system_default_registry" . }}{{ .Values.images.fluentd.repository }}

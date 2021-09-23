@@ -126,6 +126,8 @@
 +    - key: node-role.kubernetes.io/etcd
 +      value: "true"
 +      effect: NoExecute
++  filterKubernetes:
++    Merge_Log: "Off"
 +
 +global:
 +  cattle:
@@ -144,5 +146,3 @@
 +  psp:
 +    enabled: true
 +  rkeWindowsPathPrefix: "c:\\"
-+  seLinux:
-+    enabled: false
